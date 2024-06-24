@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سنتر العباقرة بقرية سمهود</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #FFD700, #FF8C00, #FF0000, #4169E1, #000080, #800080);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 350px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .feature {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #72edf2;
+            color: #5151e5;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            min-width: 150px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 20px 0;
+            font-size: 20px;
+            color: #ffffff;
+            background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+        }
+        .teachers-header {
+            text-align: center;
+            background-color: #72edf2;
+            color: #5151e5;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .teachers-header .feature h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .teachers {
+            text-align: center;
+            margin-top: 10px;
+            width: 100%;
+            overflow-x: auto;
+        }
+        .teachers ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin: 0;
+            direction: rtl;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        .teachers ul li {
+            font-size: 1.2rem;
+            background-color: #000080;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 50%;
+            text-align: center;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 600px) {
+            .feature {
+                min-width: 200px;
+                padding: 20px;
+            }
+            .teachers ul li {
+                font-size: 1.5rem;
+                width: 120px;
+                height: 120px;
+            }
+            .button {
+                font-size: 22px;
+                padding: 20px 0;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function displayTeacher(name, subject) {
+            Swal.fire({
+                title: 'سنتر العباقرة',
+                html: `<p><strong>المدرس:</strong> ${name}</p><p><strong>المادة:</strong> ${subject}</p>`,
+                icon: 'info',
+                confirmButtonText: 'حسناً'
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <h1>سنتر العباقرة</h1>
+                <h2>بقرية سمهود</h2>
+            </div>
+        </div>
+
+        <div class="teachers-header">
+            <div class="feature">
+                <h3>المدرسين</h3>
+            </div>
+            <div class="teachers">
+                <ul>
+                    <li onclick="displayTeacher('محمد العشرى', 'اللغة العربية')">محمد العشرى</li>
+                    <li onclick="displayTeacher('عبدالفتاح دردير', 'فيزياء')">عبدالفتاح دردير</li>
+                    <li onclick="displayTeacher('عاطف محمد حمزه', 'كيمياء')">عاطف حمزه</li>
+                    <li onclick="displayTeacher('خالد كمال الدين', 'رياضيات')">خالد كمال</li>
+                    <li onclick="displayTeacher('وليد ابوالدهب', 'اللغة الانجليزية')">وليد ابوالدهب</li>
+                    <li onclick="displayTeacher('هيثم حامد', 'علوم واحياء')">هيثم حامد</li>
+                    <li onclick="displayTeacher('امين حسين', 'اللغة الانجليزية')">امين حسين</li>
+                    <li onclick="displayTeacher('رافت عبدالغنى', 'جيولوجيا')">رافت عبدالغنى</li>
+                    <li onclick="displayTeacher('حازم حبيريل', 'اللغة الانجليزية')">حازم حبيريل</li>
+                    <li onclick="displayTeacher('محمد هارون', 'اللغة الفرنسية و اللغة الانجليزية')">محمد هارون</li>
+                    <li onclick="displayTeacher('عفت مسعد', 'اللغة العربية')">عفت مسعد</li>
+                    <li onclick="displayTeacher('عبدالله احمد يونس', 'اللغة الفرنسية')">عبدالله يونس</li>
+                </ul>
+            </div>
+        </div>
+        <button class="button" onclick="location.href='http://geniusescenter9.bowwe-site.com'">الحجز</button>
+        <button class="button" onclick="location.href='https://poe.com/geniuses6center'">ai</button>
+        <button class="button" onclick="location.href='http://geniusescenter1.bowwe-site.com'">عنا</button>
+        <button class="button" onclick="location.href='http://geniusescenter9.bowwe-site.com'">تنزيل تطبيق السنتر</button>
+    </div>
+</body>
+</html>
